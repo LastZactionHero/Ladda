@@ -85,7 +85,7 @@
 				// Create the spinner if it doesn't already exist
 				if( !spinner ) spinner = createSpinner( button );
 
-				button.setAttribute( 'disabled', '' );
+				button.disabled = true;
 				button.setAttribute( 'data-loading', '' );
 
 				clearTimeout( timer );
@@ -113,8 +113,7 @@
 			 * Exit the loading state.
 			 */
 			stop: function() {
-
-				button.removeAttribute( 'disabled' );
+				button.disabled = false;
 				button.removeAttribute( 'data-loading' );
 
 				// Kill the animation after a delay to make sure it
@@ -185,7 +184,7 @@
 			disable: function () {
 
 				this.stop();
-				button.setAttribute( 'disabled', '' );
+				button.disabled = true;
 
 				return this; // chain
 
@@ -201,7 +200,7 @@
 
 				clearTimeout( timer );
 
-				button.removeAttribute( 'disabled', '' );
+				button.disabled = false;
 				button.removeAttribute( 'data-loading', '' );
 
 				if( spinner ) {
